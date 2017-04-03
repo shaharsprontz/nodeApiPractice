@@ -12,13 +12,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Routes
-app.use('/', require('./routes/api'));
+app.use('/api', require('./routes/api'));
 
-app.use('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-    console.log('Index tool');
-})
-
+app.use(express.static('public'))
 
 // Start server
 app.listen(3000);
